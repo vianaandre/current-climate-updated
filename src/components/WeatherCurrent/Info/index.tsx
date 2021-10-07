@@ -1,7 +1,7 @@
 import { Box, Text } from '@chakra-ui/react';
 
 interface InfoProps {
-    num: number;
+    num: number | undefined;
     desc: string;
     metric: string;
     bgColor: string;
