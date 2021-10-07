@@ -3,6 +3,7 @@
 > Projeto antigo <a href="https://github.com/vianaandre/current_climate">Current Climate</a>
 
 <hr />
+
 ### Tasks
 <ul>
     <li>✔ Configurar ambiente com reactjs, typescript e jest</li>
@@ -23,3 +24,4 @@
 <hr />
 
 Feito com muito ❤ por <a href="https://github.com/vianaandre/">André</a>
+
