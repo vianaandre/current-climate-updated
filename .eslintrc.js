@@ -30,5 +30,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-unused-vars': 'off',
     'arrow-body-style': ['error', 'always'],
+    'no-alert': 'off',
+    'no-unused-expressions': 'error',
+    'no-shadow': 'off',
   },
 };
