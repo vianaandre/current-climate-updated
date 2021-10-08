@@ -33,5 +33,7 @@ module.exports = {
     'no-alert': 'off',
     'no-unused-expressions': 'error',
     'no-shadow': 'off',
+    'max-len': 'off',
+    'react/no-array-index-key': 'off',
   },
 };
