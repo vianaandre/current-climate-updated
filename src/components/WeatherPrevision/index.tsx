@@ -1,18 +1,32 @@
-import { Flex, List, ListItem } from '@chakra-ui/react';
+import { List, ListItem } from '@chakra-ui/react';
 import CardWeather from './CardWeather';
 
-const WeatherPrevision = () => {
+interface WeatherPrevisionProps {
+    daily: Array<{
+        rain: number;
+        clouds: number;
+        temp: {
+            day: number;
+            max: number;
+            min: number;
+        };
+    }> | undefined;
+}
+
+const WeatherPrevision = ({ daily }: WeatherPrevisionProps) => {
+  console.log(daily);
+
   return (
     <List>
-      <ListItem>
-        <CardWeather day="Amanhã" graus="19°" rain="12mm" percentage="60%" temMax="19ºC" temMin="29ºC" />
-      </ListItem>
-      <ListItem>
-        <CardWeather day="Amanhã" graus="19°" rain="12mm" percentage="60%" temMax="19ºC" temMin="29ºC" />
-      </ListItem>
-      <ListItem>
-        <CardWeather day="Amanhã" graus="19°" rain="12mm" percentage="60%" temMax="19ºC" temMin="29ºC" />
-      </ListItem>
+      {daily?.map(({
+        rain, clouds, temp,
+      }, index) => {
+        return (
+          <ListItem key={rain}>
+            <CardWeather day="Amanhã" graus={temp.day} rain={rain} percentage={clouds} temMax={temp.max} temMin={temp.min} index={index + 1} />
+          </ListItem>
+        );
+      })}
     </List>
   );
 };

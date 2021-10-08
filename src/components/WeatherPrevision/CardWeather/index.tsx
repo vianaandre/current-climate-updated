@@ -1,25 +1,31 @@
 import {
   Box, Heading, Flex, Text, Image,
 } from '@chakra-ui/react';
+import getDay from 'date-fns/getDay';
+import dayWeek from '../../../utils/dayWeek';
 
 interface CardWeatherProps {
-    day: string,
-    graus: string,
-    rain: string,
-    percentage: string,
-    temMax: string,
-    temMin: string,
+    day: string;
+    graus: number;
+    rain: number;
+    percentage: number;
+    temMax: number;
+    temMin: number;
+    index: number;
 }
 
 const CardWeather = ({
-  day, graus, rain, percentage, temMax, temMin,
+  day, graus, rain, percentage, temMax, temMin, index,
 }: CardWeatherProps) => {
+  const percentageTransform = percentage > 90 ? (percentage - 5) : percentage;
+  const date = index === 1 ? 'Amanhã' : dayWeek(getDay(new Date().setDate(index)));
+
   return (
     <Box mb={2}>
-      <Heading fontSize="2xl" color="black.600" fontWeight={500} mb={1}>{day}</Heading>
+      <Heading fontSize="2xl" color="black.600" fontWeight={500} mb={1}>{date}</Heading>
       <Flex bgColor="white.50" flexDirection="row" p={15} align="center" borderRadius="lg" borderWidth="thin" borderColor="white.150">
         <Box mr={5}>
-          <Heading fontSize="2xl" color="black.600" fontWeight={500}>{graus}</Heading>
+          <Heading fontSize="2xl" color="black.600" fontWeight={500}>{`${Math.ceil(graus)}°`}</Heading>
         </Box>
         <Flex flexDirection="column">
           <Flex flexDirection="row" mb={4} align="center">
@@ -30,10 +36,10 @@ const CardWeather = ({
                 src="assets/water.svg"
               />
               <Text mr={2} ml={2}>
-                {rain}
+                {`${Math.ceil(rain)}mm`}
               </Text>
               <Text>
-                {percentage}
+                {`${percentageTransform}%`}
               </Text>
             </Flex>
           </Flex>
@@ -45,12 +51,12 @@ const CardWeather = ({
                 src="assets/temperatureMin.svg"
                 mr={2}
               />
-              <Text mr={3}>{temMax}</Text>
+              <Text mr={3}>{`${Math.ceil(temMin)}°`}</Text>
               <Image
                 src="assets/temperature.svg"
                 mr={2}
               />
-              <Text>{temMin}</Text>
+              <Text>{`${Math.ceil(temMax)}°`}</Text>
             </Flex>
           </Flex>
         </Flex>
