@@ -3,9 +3,8 @@ import {
   Container, Box, Image, Flex,
   CircularProgress,
 } from '@chakra-ui/react';
-import WeatherCurrent from './components/WeatherCurrent';
-import WeatherPrevision from './components/WeatherPrevision';
 import './styles/global.css';
+import Weather from './components/Weather';
 
 interface LocationProps {
     lat: number;
@@ -46,10 +45,7 @@ function App() {
               align="centerContent"
             />
           </Box>
-          <Flex w="100%" flexDirection="row" justifyContent="space-between" pb={50}>
-            <WeatherCurrent lat={location.lat} long={location.long} />
-            <WeatherPrevision />
-          </Flex>
+          <Weather lat={location.lat} long={location.long} />
         </Container>
       ) : (
         <Container maxW={768} centerContent>
