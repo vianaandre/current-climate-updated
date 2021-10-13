@@ -18,7 +18,7 @@
     <li>✔ Formatas os dados das noticias</li>
     <li>✔ Adaptar para mobile</li>
     <li>❌ Fazer os testes</li>
-    <li>❌ Fazer o deploy da vercel</li>
+    <li>❌ Fazer o deploy na vercel</li>
 </ul>
 
 <hr />
