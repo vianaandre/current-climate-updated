@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import {
-  Container, Box, Image, Flex,
-  CircularProgress,
+  Container, Box, Image,
+  Progress, Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from '@chakra-ui/react';
 import './styles/global.css';
 import Weather from './components/Weather';
+import { News } from './components/News';
+import { Social } from './components/Social';
 
 interface LocationProps {
     lat: number;
@@ -13,6 +18,7 @@ interface LocationProps {
 
 function App() {
   const [location, setLocation] = useState<LocationProps | null | void>();
+  const [alertDefault, setAlertDeault] = useState(false);
 
   useEffect(() => {
     const getLocation = async () => {
@@ -25,9 +31,22 @@ function App() {
           navigator.geolocation.clearWatch(watcher);
           console.log(coordinates);
           setLocation(coordinates);
+        },
+        (erro) => {
+          const coordinatesDefault = {
+            lat: -25.0913,
+            long: -54.2477,
+          };
+          setLocation(coordinatesDefault);
+          setAlertDeault(true);
         });
       } else {
         alert('Não foi possível pegar sua Localização!!!');
+        const coordinatesDefault = {
+          lat: -25.0913,
+          long: -54.2477,
+        };
+        setLocation(coordinatesDefault);
       }
     };
 
@@ -37,29 +56,33 @@ function App() {
   return (
     <div>
       {location ? (
-        <Container maxW={768} centerContent>
-          <Box maxW="sm" pt={14} pb={14}>
-            <Image
-              src="/assets/logo.svg"
-              alt="Logo do Site"
-              align="centerContent"
-            />
+        <>
+          <Container maxW={768} centerContent overflow="hidden" position="relative">
+            <Social />
+            <Box maxW="sm" pt={14} pb={14}>
+              <Image
+                src="/assets/logo.svg"
+                alt="Logo do Site"
+                align="centerContent"
+              />
+            </Box>
+            {alertDefault ? (
+              <Alert status="info" mb={3}>
+                <AlertIcon />
+                Clima atual de Missal/Paraná
+              </Alert>
+            ) : null}
+            <Weather lat={location.lat} long={location.long} />
+            <News />
+          </Container>
+          <Box display={{ base: 'none', md: 'block' }}>
+            <Social />
           </Box>
-          <Weather lat={location.lat} long={location.long} />
-        </Container>
+        </>
       ) : (
-        <Container maxW={768} centerContent>
-          <Box maxW="sm" pt={14} pb={14}>
-            <Image
-              src="/assets/logo.svg"
-              alt="Logo do Site"
-              align="centerContent"
-            />
-          </Box>
-          <Flex w="100%" flexDirection="row" justifyContent="space-between" pb={50}>
-            <CircularProgress />
-          </Flex>
-        </Container>
+        <Box>
+          <Progress size="lg" isIndeterminate colorScheme="blue" />
+        </Box>
       )}
     </div>
   );
