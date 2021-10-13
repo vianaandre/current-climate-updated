@@ -29,7 +29,6 @@ function App() {
             long: position.coords.longitude,
           };
           navigator.geolocation.clearWatch(watcher);
-          console.log(coordinates);
           setLocation(coordinates);
         },
         (erro) => {
