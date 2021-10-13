@@ -13,10 +13,10 @@
     <li>✔ Buscar o clima atual do com as coordenadas do usuário ou a definida por padrão</li>
     <li>✔ Buscar a previsão do tempo com as coordenadas do usuário ou a definida por padrão</li>
     <li>✔ Formatar os dados que vieram das requests</li>
-    <li>❌ Criar os componentes da seção de notícias e as suas props</li>
-    <li>❌ Buscar as noticias com os parâmetros definidos</li>
-    <li>❌ Formatas os dados das noticias</li>
-    <li>❌ Adaptar para mobile</li>
+    <li>✔ Criar os componentes da seção de notícias e as suas props</li>
+    <li>✔ Buscar as noticias com os parâmetros definidos</li>
+    <li>✔ Formatas os dados das noticias</li>
+    <li>✔ Adaptar para mobile</li>
     <li>❌ Fazer os testes</li>
     <li>❌ Fazer o deploy da vercel</li>
 </ul>
