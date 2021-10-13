@@ -8,7 +8,7 @@ const weather = async (lat: number, lon: number) => {
       lon,
       lang: 'pt_br',
       units: 'metric',
-      appid: '005bae086b2f834f591f43fad4011bb5',
+      appid: process.env.REACT_APP_WEATHER,
     },
   });
 

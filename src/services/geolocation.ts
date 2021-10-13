@@ -7,7 +7,7 @@ const geolocation = async (lat: number, lon: number) => {
       lat,
       lon,
       lang: 'pt_br',
-      appid: '005bae086b2f834f591f43fad4011bb5',
+      appid: process.env.REACT_APP_GEOLOCATION,
     },
   });
 
