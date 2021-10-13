@@ -14,8 +14,6 @@ interface WeatherPrevisionProps {
 }
 
 const WeatherPrevision = ({ daily }: WeatherPrevisionProps) => {
-  console.log(daily);
-
   return (
     <List>
       {daily?.map(({

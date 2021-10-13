@@ -35,7 +35,6 @@ const Weather = ({ lat, long }: WeatherProps) => {
     const { name } = await geolocation(lat, long);
     const data = await geolocation(lat, long);
     setLocationData(name);
-    console.log(data);
   };
 
   const getClimate = async () => {

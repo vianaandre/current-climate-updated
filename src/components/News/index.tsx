@@ -20,7 +20,6 @@ export const News = () => {
   const getNews = async () => {
     const { data } = await news();
     setNoticies(data);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -41,7 +40,7 @@ export const News = () => {
               author, description, image, title, url,
             }, index) => {
               return (
-                <CardNews author={author} description={description} image={image || 'https://res.cloudinary.com/andreimagens/image/upload/v1633958627/news-clima_bmpa9g.jpg'} title={title} url={url} />
+                <CardNews key={index} author={author} description={description} image={image || 'https://res.cloudinary.com/andreimagens/image/upload/v1633958627/news-clima_bmpa9g.jpg'} title={title} url={url} />
               );
             })}
           </Collapse>
