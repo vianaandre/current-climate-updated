@@ -11,7 +11,7 @@ const news = async () => {
     },
   });
 
-  console.log(response.data);
+  return response.data;
 };
 
 export default news;
