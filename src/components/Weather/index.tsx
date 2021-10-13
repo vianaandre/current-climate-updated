@@ -57,7 +57,7 @@ const Weather = ({ lat, long }: WeatherProps) => {
   }, []);
 
   return (
-    <Flex w="100%" flexDirection="row" justifyContent="space-between" pb={50}>
+    <Flex w={{ base: '100%', md: '100%' }} flexWrap="wrap" flexDirection={{ base: 'column', md: 'row' }} justifyContent="space-between" alignItems={{ base: 'center', md: '' }} pb={50}>
       <WeatherCurrent location={locationData} temp={currentData?.temp} humidity={currentData?.humidity} windSpeed={currentData?.windSpeed} />
       <WeatherPrevision daily={previsionData?.slice(1, 4)} />
     </Flex>

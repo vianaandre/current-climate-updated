@@ -23,7 +23,7 @@ const WeatherPrevision = ({ daily }: WeatherPrevisionProps) => {
       }, index) => {
         return (
           <ListItem key={rain}>
-            <CardWeather day="Amanhã" graus={temp.day} rain={rain} percentage={clouds} temMax={temp.max} temMin={temp.min} index={index + 1} />
+            <CardWeather graus={temp.day} rain={rain} percentage={clouds} temMax={temp.max} temMin={temp.min} index={index + 1} />
           </ListItem>
         );
       })}
