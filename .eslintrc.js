@@ -35,5 +35,9 @@ module.exports = {
     'no-shadow': 'off',
     'max-len': 'off',
     'react/no-array-index-key': 'off',
+    'no-restricted-globals': 'off',
+    'use-isnan': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'consistent-return': 'off',
   },
 };
