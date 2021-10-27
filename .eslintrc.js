@@ -39,5 +39,6 @@ module.exports = {
     'use-isnan': 'off',
     'react/jsx-props-no-spreading': 'off',
     'consistent-return': 'off',
+    'linebreak-style': 0,
   },
 };
