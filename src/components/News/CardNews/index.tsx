@@ -19,7 +19,7 @@ export const CardNews = ({
         <Flex w="100%" h={{ base: 'auto', md: '100%' }} alignItems={{ base: 'center', md: 'auto' }} flexDirection={{ base: 'column', md: 'row' }}>
           <Image src={image} boxSize="250px" objectFit="cover" />
           <Box display="flex" h={{ base: 'auto', md: '100%' }} w={{ base: '250px', md: '100%' }} flexDirection="column" p={{ base: '10px 10px', md: '15px 30px' }} bg="white.50" borderWidth="1px" borderColor="white.150">
-            <Heading as="h2" fontSize={{ base: '18px', md: '24px' }} mb="20px">{title}</Heading>
+            <Heading as="h2" fontSize={{ base: '18px', md: '24px' }} mb="10px">{title}</Heading>
             <Text overflow="hidden" fontSize={{ base: '12px', md: '14px' }} mb="20px">{description}</Text>
             <Box display="flex" alignItems="center" opacity="0.9">
               <Image src="/assets/author.svg" mr="10px" width="12px" />

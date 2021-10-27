@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import {
   Box, List, Collapse, Button, useDisclosure, Image, Heading,
 } from '@chakra-ui/react';
-import news from '../../services/news';
+import { getNews } from '../../services/getNews';
 import { CardNews } from './CardNews';
 
 interface NoticiesProps {
@@ -17,13 +17,13 @@ export const News = () => {
   const [noticies, setNoticies] = useState<null | Array<NoticiesProps>>(null);
   const { isOpen, onToggle } = useDisclosure();
 
-  const getNews = async () => {
-    const { data } = await news();
-    setNoticies(data);
+  const getNewsData = async () => {
+    const news = await getNews();
+    setNoticies(news);
   };
 
   useEffect(() => {
-    getNews();
+    getNewsData();
   }, []);
 
   return (
